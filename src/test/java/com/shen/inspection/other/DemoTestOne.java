@@ -9,6 +9,7 @@ class DemoTestOne {
     @Test
     void testOne() {
         log.info("this is test one");
+        System.out.println("this is a test");
         Assertions.assertTrue(true);
     }
 }
