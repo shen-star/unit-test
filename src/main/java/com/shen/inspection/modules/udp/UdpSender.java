@@ -28,7 +28,6 @@ public class UdpSender {
         int packageLength = receiveDatagramPacket.getLength();
         byte[] packageData = receiveDatagramPacket.getData();
         log.info("发送端收到的数据为: {}", new String(packageData, 0, packageLength));
-
         //关闭资源
         datagramSocket.close();
         log.info("Sender 结束");

@@ -25,7 +25,6 @@ public class UdpReceiver {
         int packageLength = receiveDatagramPacket.getLength();
         byte[] packageData = receiveDatagramPacket.getData();
         log.info("接收端收到的数据为: {}", new String(packageData, 0, packageLength));
-
         byte[] sendBytes = "I'm fine, hello sender".getBytes();
         DatagramPacket sendDatagramPacket = new DatagramPacket(sendBytes, sendBytes.length, InetAddress.getLocalHost(), 18088);
         //调用发送数据方法，输出到DatagramPacket对象中，如果没有接收到则阻塞
