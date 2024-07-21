@@ -2,7 +2,6 @@ package com.shen.inspection.modules.upload;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,11 +15,14 @@ public class StringUtils {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         byte[] bytes = new byte[1024];
         int len;
-        while ((len = inputStream.read(bytes))!= -1) {
-            byteArrayOutputStream.write(bytes);
+        while ((len = inputStream.read(bytes)) != -1) {
+            byteArrayOutputStream.write(bytes, 0, len);
         }
         byte[] array = byteArrayOutputStream.toByteArray();
         byteArrayOutputStream.close();
         return array;
+    }
+
+    private StringUtils() {
     }
 }
