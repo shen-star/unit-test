@@ -7,7 +7,7 @@ import lombok.extern.slf4j.Slf4j;
  * 底层使用了设计模式中的代理模式-静态代理
  */
 @Slf4j
-public class ThreadDemoTwo {
+public class ThreadCreateDemoTwo {
     public static void main(String[] args) {
         ThreadTest threadTest = new ThreadTest();
         Thread thread = new Thread(threadTest);

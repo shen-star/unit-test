@@ -7,7 +7,7 @@ import lombok.extern.slf4j.Slf4j;
  * 通过命令行使用jconsole监控可以发现，进程中主线程结束后不一定就结束，取决于所有线程是否都已结束
  */
 @Slf4j
-public class ThreadDemoOne {
+public class ThreadCreateDemoOne {
     public static void main(String[] args) {
         ThreadTest threadTest = new ThreadTest();
         threadTest.start();
