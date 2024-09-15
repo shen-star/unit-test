@@ -2,6 +2,9 @@ package com.shen.inspection.modules.thread;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * 守护线程使用
+ */
 @Slf4j
 public class DaemonThreadDemo {
     public static void main(String[] args) throws InterruptedException {

@@ -2,13 +2,16 @@ package com.shen.inspection.modules.thread;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * 查看线程状态
+ */
 @Slf4j
 public class ThreadStateDemo {
     public static void main(String[] args) throws InterruptedException {
         ThreadTest threadTest = new ThreadTest();
         log.info("{} thread state is {}", threadTest.getName(), threadTest.getState());
         threadTest.start();
-        while(Thread.State.TERMINATED != threadTest.getState()){
+        while (Thread.State.TERMINATED != threadTest.getState()) {
             log.info("{} thread state is {}", threadTest.getName(), threadTest.getState());
             Thread.sleep(500);
         }
