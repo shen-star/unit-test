@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.Properties;
 
@@ -26,8 +27,11 @@ public class ReflectionTestOne {
         String methodName = properties.getProperty("method.name");
         //加载类，返回Class类型对象cls
         Class cls = Class.forName(classPath);
-        //通过cls得到加载的类com.shen.inspection.modules.reflection.DemoEntity的对象实例
-        Object object = cls.newInstance();
+        //通过cls得到加载的类com.shen.inspection.modules.reflection.DemoEntity的对象实例,此方式已废弃不推荐使用
+        // Object object = cls.newInstance();
+        //通过cls获取构造器，通过构造器生成对应类的对象实例
+        Constructor constructor = cls.getConstructor();
+        Object object = constructor.newInstance();
         //通过cls得到加载的类com.shen.inspection.modules.reflection.DemoEntity的方法对象
         //在反射中，可以把方法看作对象
         Method method = cls.getMethod(methodName);
