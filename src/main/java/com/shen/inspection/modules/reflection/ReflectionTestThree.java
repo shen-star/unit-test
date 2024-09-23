@@ -6,7 +6,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 
 /**
- * 测试反射的效率
+ * 测试反射的效率与优化后效率
  */
 @Slf4j
 public class ReflectionTestThree {
