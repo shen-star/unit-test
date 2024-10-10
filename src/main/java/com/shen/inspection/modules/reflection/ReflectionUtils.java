@@ -13,6 +13,7 @@ import java.lang.reflect.Method;
 @Slf4j
 public class ReflectionUtils {
     public static void main(String[] args) throws Exception {
+        log.info("=========================获取类结构信息的常用方法-Class类的方法=====================================");
         //得到Class对象
         Class<?> cls = Class.forName("com.shen.inspection.modules.reflection.Dog");
         //获取全类名
@@ -37,12 +38,12 @@ public class ReflectionUtils {
         //获取本类的所有方法
         Method[] declareMethods = cls.getDeclaredMethods();
         for (Method declareMethod : declareMethods) {
-            log.info("获取本类的所有属性:{}", declareMethod.getName());
+            log.info("获取本类的所有方法:{}", declareMethod.getName());
         }
         //获取所有public修饰的构造器，包含本类
         Constructor[] constructors = cls.getConstructors();
         for (Constructor constructor : constructors) {
-            log.info("获取本类以及父类的公有构造器:{}", constructor.getName());
+            log.info("获取本类的公有构造器:{}", constructor.getName());
         }
         //获取本类的所有构造器
         Constructor[] declareConstructors = cls.getDeclaredConstructors();
@@ -63,6 +64,25 @@ public class ReflectionUtils {
         for (Annotation annotation : annotations) {
             log.info("注解信息:{}", annotation);
         }
+
+        log.info("=================================================================================================");
+        log.info("============================获取类结构信息的常用方法-Field类的方法====================================");
+        //默认修饰符为0，public为1，private为2，protected为4，static是8，final是16，组合为两者相加
+        for (Field declareField : declareFields) {
+            log.info("获取本类的所有属性:{}，对应修饰符值为:{}，对应的类型为:{}", declareField.getName(), declareField.getModifiers(), declareField.getType());
+        }
+
+        log.info("=================================================================================================");
+        log.info("============================获取类结构信息的常用方法-Method类的方法===================================");
+        for (Method declareMethod : declareMethods) {
+            log.info("获取本类的所有方法:{}，对应修饰符值为:{}，对应的返回类型为:{},对应传参数组为:{}", declareMethod.getName(), declareMethod.getModifiers(), declareMethod.getReturnType(), declareMethod.getParameterTypes());
+        }
+        log.info("=================================================================================================");
+        log.info("============================获取类结构信息的常用方法-Constructor类的方法==============================");
+        for (Constructor declareConstructor : declareConstructors) {
+            log.info("获取本类的所有构造器:{},对应修饰符值为:{}，对应传参数组为:{}", declareConstructor.getName(), declareConstructor.getModifiers(), declareConstructor.getParameterTypes());
+        }
+
     }
 }
 
@@ -93,6 +113,7 @@ interface Feed {
 
 @Deprecated
 class Dog extends Animal implements Train, Feed {
+    public static final int NUM_ONE = 1;
     public String name;
     protected String age;
     private String gender;
@@ -106,8 +127,8 @@ class Dog extends Animal implements Train, Feed {
         this.name = name;
     }
 
-    public void dogTestOne() {
-
+    public String dogTestOne(String test, int number) {
+        return test + number;
     }
 
     private void dogHello() {
