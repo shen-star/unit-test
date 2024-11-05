@@ -1,4 +1,4 @@
-package com.shen.inspection.modules.nio.channel;
+package com.shen.inspection.modules.nio;
 
 import lombok.extern.slf4j.Slf4j;
 
